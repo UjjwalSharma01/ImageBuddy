@@ -1,23 +1,38 @@
 {
-  "name": "imageops",
-  "version": "0.1.0",
-  "private": true,
+  "name": "imagebuddy",
+  "version": "1.0.0",
+  "description": "Professional-grade image editing with secure on-device processing. Transform, enhance, and perfect your images with our advanced tools.",
+  "keywords": ["image editor", "photo editing", "image processing", "online editor", "premium tools", "canvas", "filters", "compression"],
+  "author": "ImageBuddy Team",
+  "license": "MIT",
+  "homepage": "https://imagebuddy.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imagebuddy/imagebuddy"
+  },
+  "bugs": {
+    "url": "https://github.com/imagebuddy/imagebuddy/issues"
+  },
+  "private": false,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next build && next export",
+    "analyze": "ANALYZE=true next build",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "browser-image-compression": "^2.0.2",
+    "fabric": "^6.6.7",
+    "file-saver": "^2.0.5",
+    "next": "15.3.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.2"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.2",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4"
   }
 }
