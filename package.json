@@ -2,7 +2,16 @@
   "name": "imagebuddy",
   "version": "1.0.0",
   "description": "Professional-grade image editing with secure on-device processing. Transform, enhance, and perfect your images with our advanced tools.",
-  "keywords": ["image editor", "photo editing", "image processing", "online editor", "premium tools", "canvas", "filters", "compression"],
+  "keywords": [
+    "image editor",
+    "photo editing",
+    "image processing",
+    "online editor",
+    "premium tools",
+    "canvas",
+    "filters",
+    "compression"
+  ],
   "author": "ImageBuddy Team",
   "license": "MIT",
   "homepage": "https://imagebuddy.app",
@@ -29,7 +38,8 @@
     "file-saver": "^2.0.5",
     "next": "15.3.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
