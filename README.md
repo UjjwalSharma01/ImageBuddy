@@ -91,7 +91,7 @@ Node.js 18+ and npm/yarn
 ### Installation & Setup
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/imagebuddy.git
+git clone https://github.com/UjjwalSharma01/imagebuddy.git
 cd imagebuddy
 
 # Install dependencies
