@@ -1,35 +1,24 @@
-# ImageOps - Professional Image Editor
+# ImageBuddy - Professional Image Editor
 
-**A scalable, privacy-first image editing platform built with Next.js that processes everything locally in## Live Demo & Screenshots
+**A scalable, privacy-first image editing platform built with Next.js that processes everything locally in the browser. No server uploads, no data storage - just powerful image editing tools at your fingertips.**
 
-**[Try ImageOps Live](https://your-demo-link.vercel.app)** | **[Mobile Version](https://your-demo-link.vercel.app/editor)**
+**[Try ImageBuddy Live](https://imagebuddy.vercel.app)
 
-### Application Screenshots
-```
-[Add screenshots here showing:]
-   ├── Landing page with modern design
-   ├── Editor interface with image loaded
-   ├── Real-time editing controls in action
-   ├── Mobile responsive layout
-   └── Before/after comparison examples
-```
 
-### Demo Video
-*Consider adding a 30-second screen recording showing the key features in action*[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge&logo=javascript)](https://javascript.info/)
 [![Canvas API](https://img.shields.io/badge/HTML5_Canvas-API-orange?style=for-the-badge&logo=html5)](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
-[![Deployed](https://img.shields.io/badge/Deployed-Live-brightgreen?style=for-the-badge&logo=vercel)](https://your-demo-link.vercel.app)
+[![Deployed](https://img.shields.io/badge/Deployed-Live-brightgreen?style=for-the-badge&logo=vercel)](https://ImageBuddy.vercel.app)
 
-## Live Demo
-**[Live Application](https://your-demo-link.vercel.app)** | **[Try Editor](https://your-demo-link.vercel.app/editor)**
+
 
 *Upload an image and start editing in seconds - no sign-up required*
 
 ## Project Overview
 
-**ImageOps** is a comprehensive web-based image editing platform that prioritizes user privacy by processing all images locally in the browser. Built with modern web technologies, it demonstrates fullstack development skills including system architecture, performance optimization, and scalable design patterns.
+**ImageBuddy** is a comprehensive web-based image editing platform that prioritizes user privacy by processing all images locally in the browser. Built with modern web technologies, it demonstrates fullstack development skills including system architecture, performance optimization, and scalable design patterns.
 
 ### Technical Achievements
 - **Privacy-First Architecture**: Zero server uploads - all processing happens client-side
@@ -102,8 +91,8 @@ Node.js 18+ and npm/yarn
 ### Installation & Setup
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/imageops.git
-cd imageops
+git clone https://github.com/yourusername/imagebuddy.git
+cd imagebuddy
 
 # Install dependencies
 npm install
@@ -155,24 +144,7 @@ src/
 ### Privacy & Security
 - **Client-Side Processing**: No server uploads - all processing happens locally
 - **No Data Collection**: Zero user data tracking or storage
-- **GDPR Compliant**: Built-in privacy policy and terms pages
-
-## 🌐 Live Demo & Screenshots
-
-**🔗 [Try ImageOps Live](https://your-demo-link.vercel.app)** | **📱 [Mobile Version](https://your-demo-link.vercel.app/editor)**
-
-### � Application Screenshots
-```
-🖼️ [Add screenshots here showing:]
-   ├── Landing page with modern design
-   ├── Editor interface with image loaded
-   ├── Real-time editing controls in action
-   ├── Mobile responsive layout
-   └── Before/after comparison examples
-```
-
-### 🎥 Demo Video
-*Consider adding a 30-second screen recording showing the key features in action*
+- **GDPR Compliant**: Built-in privacy policy and terms pages  
 
 ## Skills Demonstrated
 
