@@ -2,7 +2,7 @@
 
 **A scalable, privacy-first image editing platform built with Next.js that processes everything locally in the browser. No server uploads, no data storage - just powerful image editing tools at your fingertips.**
 
-**[Try ImageBuddy Live](https://imagebuddy.vercel.app)
+[Try ImageBuddy Live](https://imagebuddy.vercel.app)
 
 
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
