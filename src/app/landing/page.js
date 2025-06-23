@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useVisitorStats } from '../context/VisitorContext';
 import { 
   FiLock, 
   FiZap, 
@@ -18,7 +19,10 @@ import {
   FiDollarSign as FiMoney,
   FiArrowDown,
   FiCheckCircle,
-  FiAlertTriangle
+  FiAlertTriangle,
+  FiUsers,
+  FiActivity,
+  FiGlobe
 } from 'react-icons/fi';
 import { 
   HiOutlineSparkles,
@@ -33,8 +37,9 @@ export default function LandingPage() {
   const [activeFeature, setActiveFeature] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
-  const [stats, setStats] = useState({ users: 0, photos: 0, countries: 0 });
+  const [animatedStats, setAnimatedStats] = useState({ users: 0, photos: 0, countries: 0, online: 0 });
   const router = useRouter();
+  const { stats } = useVisitorStats();
 
   useEffect(() => {
     setIsVisible(true);
@@ -59,34 +64,44 @@ export default function LandingPage() {
     return () => clearInterval(interval);
   }, []);
 
-  // Animated stats counter
+  // Animated stats counter that updates with real data
   useEffect(() => {
-    const targets = { users: 50000, photos: 2500000, countries: 180 };
+    if (stats.isLoading) return;
+
+    const targets = {
+      users: stats.totalVisitors,
+      photos: stats.photosEdited,
+      countries: stats.countries,
+      online: stats.onlineNow
+    };
+
     const duration = 2000;
     const steps = 60;
     const increment = {
       users: targets.users / steps,
       photos: targets.photos / steps,
-      countries: targets.countries / steps
+      countries: targets.countries / steps,
+      online: targets.online / steps
     };
 
     let step = 0;
     const timer = setInterval(() => {
       if (step < steps) {
-        setStats({
+        setAnimatedStats({
           users: Math.floor(increment.users * step),
           photos: Math.floor(increment.photos * step),
-          countries: Math.floor(increment.countries * step)
+          countries: Math.floor(increment.countries * step),
+          online: Math.floor(increment.online * step)
         });
         step++;
       } else {
-        setStats(targets);
+        setAnimatedStats(targets);
         clearInterval(timer);
       }
     }, duration / steps);
 
     return () => clearInterval(timer);
-  }, [isVisible]);
+  }, [stats]);
 
   const benefits = [
     {
@@ -254,23 +269,43 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Animated Stats Counter */}
-          <div className="grid grid-cols-3 gap-4 sm:gap-8 mb-8 sm:mb-10 max-w-2xl mx-auto">
-            <div className="text-center p-4 bg-gradient-to-br from-[#1a1d20]/80 to-[#2d3134]/60 backdrop-blur-xl rounded-xl border border-[#2d3134]/50">
-              <div className="text-xl sm:text-3xl font-bold text-[#b7cfe0] mb-1">
-                {stats.users.toLocaleString()}+
+          {/* Real-time Animated Stats Counter */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-10 max-w-4xl mx-auto">
+            <div className="text-center p-4 bg-gradient-to-br from-[#1a1d20]/80 to-[#2d3134]/60 backdrop-blur-xl rounded-xl border border-[#2d3134]/50 hover:border-[#b7cfe0]/30 transition-all duration-300">
+              <div className="flex items-center justify-center mb-2">
+                <FiUsers className="w-5 h-5 text-[#b7cfe0] mr-2" />
+                <div className="text-lg sm:text-2xl font-bold text-[#b7cfe0]">
+                  {animatedStats.users.toLocaleString()}
+                </div>
               </div>
-              <div className="text-xs sm:text-sm text-gray-400">Users</div>
+              <div className="text-xs sm:text-sm text-gray-400">Total Users</div>
             </div>
-            <div className="text-center p-4 bg-gradient-to-br from-[#1a1d20]/80 to-[#2d3134]/60 backdrop-blur-xl rounded-xl border border-[#2d3134]/50">
-              <div className="text-xl sm:text-3xl font-bold text-[#b7cfe0] mb-1">
-                {(stats.photos / 1000000).toFixed(1)}M+
+            <div className="text-center p-4 bg-gradient-to-br from-[#1a1d20]/80 to-[#2d3134]/60 backdrop-blur-xl rounded-xl border border-[#2d3134]/50 hover:border-[#b7cfe0]/30 transition-all duration-300">
+              <div className="flex items-center justify-center mb-2">
+                <FiActivity className="w-5 h-5 text-green-400 mr-2" />
+                <div className="text-lg sm:text-2xl font-bold text-green-400">
+                  {animatedStats.online}
+                </div>
+              </div>
+              <div className="text-xs sm:text-sm text-gray-400">Online Now</div>
+            </div>
+            <div className="text-center p-4 bg-gradient-to-br from-[#1a1d20]/80 to-[#2d3134]/60 backdrop-blur-xl rounded-xl border border-[#2d3134]/50 hover:border-[#b7cfe0]/30 transition-all duration-300">
+              <div className="flex items-center justify-center mb-2">
+                <FiImage className="w-5 h-5 text-purple-400 mr-2" />
+                <div className="text-lg sm:text-2xl font-bold text-purple-400">
+                  {animatedStats.photos > 1000000 
+                    ? `${(animatedStats.photos / 1000000).toFixed(1)}M` 
+                    : `${(animatedStats.photos / 1000).toFixed(0)}K`}
+                </div>
               </div>
               <div className="text-xs sm:text-sm text-gray-400">Photos Edited</div>
             </div>
-            <div className="text-center p-4 bg-gradient-to-br from-[#1a1d20]/80 to-[#2d3134]/60 backdrop-blur-xl rounded-xl border border-[#2d3134]/50">
-              <div className="text-xl sm:text-3xl font-bold text-[#b7cfe0] mb-1">
-                {stats.countries}+
+            <div className="text-center p-4 bg-gradient-to-br from-[#1a1d20]/80 to-[#2d3134]/60 backdrop-blur-xl rounded-xl border border-[#2d3134]/50 hover:border-[#b7cfe0]/30 transition-all duration-300">
+              <div className="flex items-center justify-center mb-2">
+                <FiGlobe className="w-5 h-5 text-blue-400 mr-2" />
+                <div className="text-lg sm:text-2xl font-bold text-blue-400">
+                  {animatedStats.countries}
+                </div>
               </div>
               <div className="text-xs sm:text-sm text-gray-400">Countries</div>
             </div>

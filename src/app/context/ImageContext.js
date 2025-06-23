@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useReducer, useRef } from 'react';
 import imageCompression from 'browser-image-compression';
 import { saveAs } from 'file-saver';
+import { useVisitorStats } from './VisitorContext';
 
 const ImageContext = createContext();
 
@@ -135,6 +136,7 @@ function imageReducer(state, action) {
 export function ImageProvider({ children }) {
   const [state, dispatch] = useReducer(imageReducer, initialState);
   const canvasRef = useRef(null);
+  const { trackPhotoEdit } = useVisitorStats();
 
   // Load image from file
   const loadImage = (file) => {
@@ -334,6 +336,9 @@ export function ImageProvider({ children }) {
     state.processedImage.toBlob((blob) => {
       const fileName = state.fileName.replace(/\.[^/.]+$/, '') + '.' + format;
       saveAs(blob, fileName);
+      
+      // Track photo edit for analytics
+      trackPhotoEdit();
     }, `image/${format}`, quality);
   };
 

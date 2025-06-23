@@ -4,6 +4,15 @@ import { useState } from 'react';
 import { FiShield, FiGlobe, FiUser, FiDatabase, FiArrowLeft, FiCheckCircle } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
 
+export const metadata = {
+  title: 'GDPR Compliance - ImageBuddy',
+  description: 'Learn about ImageBuddy\'s GDPR compliance. Local processing ensures no personal data transfer.',
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function GDPRCompliance() {
   const [activeSection, setActiveSection] = useState('overview');
   const router = useRouter();
