@@ -14,13 +14,13 @@
   ],
   "author": "ImageBuddy Team",
   "license": "MIT",
-  "homepage": "https://imagebuddy.app",
+  "homepage": "https://ImageBuddy.vercel.app/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/imagebuddy/imagebuddy"
+    "url": "https://github.com/UjjwalSharma01/imagebuddy"
   },
   "bugs": {
-    "url": "https://github.com/imagebuddy/imagebuddy/issues"
+    "url": "https://github.com/UjjwalSharma01/imagebuddy/issues"
   },
   "private": false,
   "scripts": {
